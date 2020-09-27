@@ -38,7 +38,7 @@ app.get("/about", (req, res) => {
 app.get("/help", (req, res) => {
   res.render("help", {
     title: "Help",
-    name: "Phani Datta Redssdy YH",
+    name: "Phani Datta Reddy YH",
     helpText: "Please contact the service operator",
   });
 });
