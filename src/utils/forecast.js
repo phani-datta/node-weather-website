@@ -17,16 +17,11 @@ const forecast = (lat, lon, callback) => {
         undefined
       );
     } else {
-      callback(
-        undefined,
-        "It is " +
-          body.weather[0].description +
-          ". The temperature is " +
-          body.main.temp +
-          " degrees celcius. But, it feels like " +
-          body.main.temp_min +
-          " degrees celcius."
-      );
+      callback(undefined, {
+        weather: body.weather[0].description,
+        current_temp: body.main.temp,
+        feels_like_temp: body.main.temp_min,
+      });
     }
   });
 };

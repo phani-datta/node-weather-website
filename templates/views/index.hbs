@@ -14,15 +14,30 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <p>Use this site to get your weather</p>
+        <img id="weatherPic" src="/img/rain.png" alt="clouds image">
+        <p>Use this site to get your weather!</p>
 
         <form action="">
             <input placeholder="Location" autofocus>
             <button>Search</button>
         </form>
 
-        <p id="message-1"></p>
-        <p id="message-2"></p>
+        <p id="locationDataID"></p>
+
+        <table>
+            <tr>
+                <td id="weatherSkyID"></td>
+                <td id="weatherSkyDataID"></td>
+            </tr>
+            <tr>
+                <td id="currentTempID"></td>
+                <td id="currentTempDataID"></td>
+            </tr>
+            <tr>
+                <td id="feelsLikeTempID"></td>
+                <td id="feelsLikeTempDataID"></td>
+            </tr>
+        </table>
     </div>
 
     {{>footer}}

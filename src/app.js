@@ -24,21 +24,21 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Phani datta Reddy YH",
+    name: "Phani Datta Reddy YH",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About me",
-    name: "Phani",
+    name: "Phani Datta Reddy YH",
   });
 });
 
 app.get("/help", (req, res) => {
   res.render("help", {
     title: "Help",
-    name: "Phani datta Reddy YH",
+    name: "Phani Datta Redssdy YH",
     helpText: "Please contact the service operator",
   });
 });
@@ -56,16 +56,23 @@ app.get("/weather", (req, res) => {
       if (error) {
         return res.send({ error });
       }
-      forecast(latitude, longitude, (error, forecastData) => {
-        if (error) {
-          return res.send({ error });
+      forecast(
+        latitude,
+        longitude,
+        (error, { weather, current_temp, feels_like_temp } = {}) => {
+          if (error) {
+            return res.send({ error });
+          }
+          res.send({
+            // forecast: forecastData,
+            weather,
+            current_temp,
+            feels_like_temp,
+            location,
+            address: req.query.address,
+          });
         }
-        res.send({
-          forecast: forecastData,
-          location,
-          address: req.query.address,
-        });
-      });
+      );
     }
   );
 
